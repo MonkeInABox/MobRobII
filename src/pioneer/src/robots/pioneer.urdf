@@ -23,14 +23,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/chassis.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/chassis.dae"/>
       </geometry>
-      <material name="ChassisRed"/>
+      <material name="ChassisRed">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+      </material>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <geometry>
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/chassis.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/chassis.dae"/>
       </geometry>
     </collision>
   </link>
@@ -60,7 +62,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/top.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/top.dae"/>
       </geometry>
       <material name="TopBlack">
         <color rgba="0.038 0.038 0.038 1.0"/>
@@ -92,7 +94,7 @@
     <visual name="front_left_axle">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/axle.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/axle.dae"/>
       </geometry>
       <material name="AxleGrey">
         <color rgba="0.5 0.5 0.5 1"/>
@@ -123,7 +125,7 @@
     <visual name="front_left_hub">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/left_hubcap.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/left_hubcap.dae"/>
       </geometry>
       <material name="HubcapYellow">
         <color rgba="1.0 0.811 0.151 1.0"/>
@@ -154,7 +156,7 @@
     <visual name="front_left_wheel">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
       </geometry>
       <material name="WheelBlack">
         <color rgba="0.117 0.117 0.117 1"/>
@@ -163,7 +165,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
         <cylinder length="0.075" radius="0.111"/>
       </geometry>
     </collision>
@@ -197,7 +199,7 @@
     <visual name="back_left_axle">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/axle.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/axle.dae"/>
       </geometry>
       <material name="AxleGrey">
         <color rgba="0.5 0.5 0.5 1"/>
@@ -228,7 +230,7 @@
     <visual name="back_left_hub">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/left_hubcap.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/left_hubcap.dae"/>
       </geometry>
       <material name="HubcapYellow">
         <color rgba="1.0 0.811 0.151 1.0"/>
@@ -259,7 +261,7 @@
     <visual name="back_left_wheel">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
       </geometry>
       <material name="WheelBlack">
         <color rgba="0.117 0.117 0.117 1"/>
@@ -268,7 +270,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
         <cylinder length="0.075" radius="0.111"/>
       </geometry>
     </collision>
@@ -302,7 +304,7 @@
     <visual name="front_right_axle">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/axle.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/axle.dae"/>
       </geometry>
       <material name="AxleGrey">
         <color rgba="0.5 0.5 0.5 1"/>
@@ -333,7 +335,7 @@
     <visual name="front_right_hub">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/left_hubcap.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/left_hubcap.dae"/>
       </geometry>
       <material name="HubcapYellow">
         <color rgba="1.0 0.811 0.151 1.0"/>
@@ -364,7 +366,7 @@
     <visual name="front_right_wheel">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
       </geometry>
       <material name="WheelBlack">
         <color rgba="0.117 0.117 0.117 1"/>
@@ -373,7 +375,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
         <cylinder length="0.075" radius="0.111"/>
       </geometry>
     </collision>
@@ -407,7 +409,7 @@
     <visual name="back_right_axle">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/axle.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/axle.dae"/>
       </geometry>
       <material name="AxleGrey">
         <color rgba="0.5 0.5 0.5 1"/>
@@ -438,7 +440,7 @@
     <visual name="back_right_hub">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/right_hubcap.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/right_hubcap.dae"/>
       </geometry>
       <material name="HubcapYellow">
         <color rgba="1.0 0.811 0.151 1.0"/>
@@ -469,7 +471,7 @@
     <visual name="back_right_wheel">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
       </geometry>
       <material name="WheelBlack">
         <color rgba="0.117 0.117 0.117 1"/>
@@ -478,7 +480,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/p3at_meshes/wheel.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/p3at_meshes/wheel.dae"/>
         <cylinder length="0.075" radius="0.111"/>
       </geometry>
     </collision>
@@ -537,7 +539,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/> 
       <geometry>
-        <mesh filename="/home/jeremy/Documents/Resources/pioneer3/src/meshes/hokuyo1.dae"/>
+        <mesh filename="/home/jeremy/Resources/src/pioneer/src/meshes/hokuyo1.dae"/>
       </geometry>
     </visual>
     <inertial>

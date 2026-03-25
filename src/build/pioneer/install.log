@@ -53,6 +53,7 @@
 /home/jeremy/Resources/src/install/pioneer/share/pioneer/launch/sdf.launch.py
 /home/jeremy/Resources/src/install/pioneer/share/pioneer/rviz/config.rviz
 /home/jeremy/Resources/src/install/pioneer/share/pioneer/config/bridge_config.yaml
+/home/jeremy/Resources/src/install/pioneer/share/pioneer/config/ekf.yaml
 /home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/PKG-INFO
 /home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/top_level.txt
 /home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/dependency_links.txt

@@ -30,7 +30,7 @@ setup(
         (os.path.join('share', package_name, 'rviz'),
             glob('rviz/*')),
 
-        #config
+        # config
         (os.path.join('share', package_name, 'config'),
             glob('config/*')),
     ],

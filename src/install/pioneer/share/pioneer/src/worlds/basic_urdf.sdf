@@ -26,14 +26,14 @@
         <plugin filename="libgz-sim-contact-system"
                 name="gz::sim::systems::Contact">
         </plugin>
-        <plugin name = "lidar" filename = "libgazebo_ros_ray_sensory.so">
+        <!-- <plugin name = "lidar" filename = "libgazebo_ros_ray_sensory.so">
             <output_type>sensor_msgs/LaserScan</output_type>
-        </plugin>
+        </plugin> -->
 
-        <include>
+        <!-- <include>
             <uri>/home/jeremy/Documents/Resources/pioneer/src/robots/pioneer.urdf</uri>
             <name>pioneer</name>
-        </include>
+        </include> -->
 
         <light type="directional" name="sun">
                 <cast_shadows>true</cast_shadows>
