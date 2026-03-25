@@ -1,0 +1,47 @@
+[0.619s] Invoking command in '/home/jeremy/Resources/src/pioneer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/src/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pioneer build --build-base /home/jeremy/Resources/src/build/pioneer/build install --record /home/jeremy/Resources/src/build/pioneer/install.log --single-version-externally-managed install_data
+[0.827s] running egg_info
+[0.842s] writing ../build/pioneer/pioneer.egg-info/PKG-INFO
+[0.842s] writing dependency_links to ../build/pioneer/pioneer.egg-info/dependency_links.txt
+[0.843s] writing requirements to ../build/pioneer/pioneer.egg-info/requires.txt
+[0.843s] writing top-level names to ../build/pioneer/pioneer.egg-info/top_level.txt
+[0.872s] reading manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[0.874s] writing manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[0.874s] running build
+[0.874s] running build_py
+[0.874s] running install
+[0.879s] running install_lib
+[0.894s] running install_data
+[0.894s] copying src/meshes/suporte_armControl_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/Coordinates -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/suporte_monitor_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/back_sonar.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/tampa2_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/right_hubcap.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/back_sonar_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/hokuyo_convex.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/hokuyo.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.895s] copying src/meshes/chassis.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.896s] copying src/meshes/arm_control_box_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.896s] copying src/meshes/wheel.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.896s] copying src/meshes/left_hubcap_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.896s] copying src/meshes/front_sonar.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.896s] copying src/meshes/kinect.tga -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.896s] copying src/meshes/left_hubcap.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.897s] copying src/meshes/tampa3_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.897s] copying src/meshes/tv_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.897s] copying src/meshes/suporte_base_mesh2.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.897s] creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/robots
+[0.898s] copying src/robots/pioneer.urdf -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/robots
+[0.898s] creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/worlds
+[0.898s] copying src/worlds/basic_urdf.sdf -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/worlds
+[0.898s] creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/launch
+[0.898s] copying launch/display.launch.py -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/launch
+[0.898s] copying launch/sdf.launch.py -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/launch
+[0.898s] creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/rviz
+[0.898s] copying rviz/config.rviz -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/rviz
+[0.898s] running install_egg_info
+[0.921s] removing '/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info' (and everything under it)
+[0.921s] Copying ../build/pioneer/pioneer.egg-info to /home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info
+[0.922s] running install_scripts
+[1.026s] writing list of installed files to '/home/jeremy/Resources/src/build/pioneer/install.log'
+[1.048s] Invoked command in '/home/jeremy/Resources/src/pioneer' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/src/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pioneer build --build-base /home/jeremy/Resources/src/build/pioneer/build install --record /home/jeremy/Resources/src/build/pioneer/install.log --single-version-externally-managed install_data

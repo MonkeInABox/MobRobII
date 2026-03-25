@@ -1,0 +1,41 @@
+running egg_info
+writing ../build/pioneer/pioneer.egg-info/PKG-INFO
+writing dependency_links to ../build/pioneer/pioneer.egg-info/dependency_links.txt
+writing requirements to ../build/pioneer/pioneer.egg-info/requires.txt
+writing top-level names to ../build/pioneer/pioneer.egg-info/top_level.txt
+reading manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+writing manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/top.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/top.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/chassis.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/axle.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/Coordinates -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/back_sonar.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/front_sonar.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/right_hubcap.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/right_hubcap.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/axle.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/wheel.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/chassis.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/wheel.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/front_sonar.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/left_hubcap.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/left_hubcap.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/p3at_meshes/back_sonar.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+copying src/meshes/tampa1_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/hokuyo1.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/top.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/suporte_depth_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/suporte_base_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/axle.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/tampa4_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/kinect.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+copying src/meshes/suporte_kinect_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+error: can't copy 'src/meshes/p3at_meshes': doesn't exist or not a regular file

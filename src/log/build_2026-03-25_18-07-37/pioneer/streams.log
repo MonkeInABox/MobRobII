@@ -1,0 +1,43 @@
+[0.635s] Invoking command in '/home/jeremy/Resources/src/pioneer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/src/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pioneer build --build-base /home/jeremy/Resources/src/build/pioneer/build install --record /home/jeremy/Resources/src/build/pioneer/install.log --single-version-externally-managed install_data
+[0.845s] running egg_info
+[0.860s] writing ../build/pioneer/pioneer.egg-info/PKG-INFO
+[0.860s] writing dependency_links to ../build/pioneer/pioneer.egg-info/dependency_links.txt
+[0.860s] writing requirements to ../build/pioneer/pioneer.egg-info/requires.txt
+[0.860s] writing top-level names to ../build/pioneer/pioneer.egg-info/top_level.txt
+[0.891s] reading manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[0.893s] writing manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[0.893s] running build
+[0.893s] running build_py
+[0.893s] running install
+[0.898s] running install_lib
+[0.917s] running install_data
+[0.918s] creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.918s] creating /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/top.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/top.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/chassis.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/axle.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/Coordinates -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/back_sonar.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/front_sonar.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.918s] copying src/meshes/p3at_meshes/right_hubcap.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/right_hubcap.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/axle.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/wheel.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/chassis.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/wheel.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/front_sonar.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/left_hubcap.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.919s] copying src/meshes/p3at_meshes/left_hubcap.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.920s] copying src/meshes/p3at_meshes/back_sonar.stl -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes/p3at_meshes
+[0.920s] copying src/meshes/tampa1_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.920s] copying src/meshes/hokuyo1.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.920s] copying src/meshes/top.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.920s] copying src/meshes/suporte_depth_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.920s] copying src/meshes/suporte_base_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.921s] copying src/meshes/axle.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.921s] copying src/meshes/tampa4_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.921s] copying src/meshes/kinect.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.922s] copying src/meshes/suporte_kinect_mesh.dae -> /home/jeremy/Resources/src/install/pioneer/share/pioneer/src/meshes
+[0.922s] error: can't copy 'src/meshes/p3at_meshes': doesn't exist or not a regular file
+[0.940s] Invoked command in '/home/jeremy/Resources/src/pioneer' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/src/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pioneer build --build-base /home/jeremy/Resources/src/build/pioneer/build install --record /home/jeremy/Resources/src/build/pioneer/install.log --single-version-externally-managed install_data
