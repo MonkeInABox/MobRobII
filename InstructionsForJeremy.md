@@ -55,3 +55,10 @@ unset GTK_PATH
 export LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | sed 's|/snap/[^:]*:||g')
 ros2 launch pioneer display.launch.py
 ```
+
+# look at tree
+```
+ros2 run tf2_tools view_frames
+
+firefox frames_2026-03-26_09.18.41.pdf 
+```

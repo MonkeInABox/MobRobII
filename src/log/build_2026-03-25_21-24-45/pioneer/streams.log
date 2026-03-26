@@ -1,0 +1,19 @@
+[0.869s] Invoking command in '/home/jeremy/Resources/src/pioneer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/src/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pioneer build --build-base /home/jeremy/Resources/src/build/pioneer/build install --record /home/jeremy/Resources/src/build/pioneer/install.log --single-version-externally-managed install_data
+[1.175s] running egg_info
+[1.195s] writing ../build/pioneer/pioneer.egg-info/PKG-INFO
+[1.195s] writing dependency_links to ../build/pioneer/pioneer.egg-info/dependency_links.txt
+[1.195s] writing requirements to ../build/pioneer/pioneer.egg-info/requires.txt
+[1.195s] writing top-level names to ../build/pioneer/pioneer.egg-info/top_level.txt
+[1.240s] reading manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[1.241s] writing manifest file '../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[1.241s] running build
+[1.242s] running build_py
+[1.242s] running install
+[1.249s] running install_lib
+[1.270s] running install_data
+[1.271s] running install_egg_info
+[1.292s] removing '/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info' (and everything under it)
+[1.293s] Copying ../build/pioneer/pioneer.egg-info to /home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info
+[1.293s] running install_scripts
+[1.470s] writing list of installed files to '/home/jeremy/Resources/src/build/pioneer/install.log'
+[1.501s] Invoked command in '/home/jeremy/Resources/src/pioneer' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/src/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/src/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pioneer build --build-base /home/jeremy/Resources/src/build/pioneer/build install --record /home/jeremy/Resources/src/build/pioneer/install.log --single-version-externally-managed install_data

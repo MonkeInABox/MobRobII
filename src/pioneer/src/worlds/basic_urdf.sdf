@@ -20,20 +20,31 @@
         <plugin filename="libgz-sim-imu-system"
                 name="gz::sim::systems::Imu">
         </plugin>
-        <plugin filename="libgz-sim-sensors-system.so"
+        <plugin filename="libgz-sim-sensors-system"
                 name="gz::sim::systems::Sensors">
         </plugin>
         <plugin filename="libgz-sim-contact-system"
                 name="gz::sim::systems::Contact">
         </plugin>
-        <!-- <plugin name = "lidar" filename = "libgazebo_ros_ray_sensory.so">
-            <output_type>sensor_msgs/LaserScan</output_type>
-        </plugin> -->
+        <!-- Navsat plugin -->
+        <plugin
+            filename="gz-sim-navsat-system"
+            name="gz::sim::systems::NavSat">
+        </plugin>
 
         <!-- <include>
             <uri>/home/jeremy/Documents/Resources/pioneer/src/robots/pioneer.urdf</uri>
             <name>pioneer</name>
         </include> -->
+        
+        <spherical_coordinates>
+            <surface_model>EARTH_WGS84</surface_model>
+            <world_frame_orientation>ENU</world_frame_orientation>
+            <latitude_deg>38.161479</latitude_deg>
+            <longitude_deg>-122.454630</longitude_deg>
+            <elevation>0</elevation>
+            <heading_deg>0</heading_deg>
+        </spherical_coordinates>
 
         <light type="directional" name="sun">
                 <cast_shadows>true</cast_shadows>

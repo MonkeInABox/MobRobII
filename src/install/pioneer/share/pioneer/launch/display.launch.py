@@ -111,11 +111,11 @@ def generate_launch_description():
             # "-z",
             # "0.00",
             "-x",
-            "-7.5",
+            "0",
             "-y",
-            "-7.5",
+            "0",
             "-z",
-            "0.00",
+            "1.00",
         ],
         name="spawn robot",
         output="both",
@@ -133,10 +133,18 @@ def generate_launch_description():
             "0",
             "0",
             "laser_frame",
-            "pioneer/base_link/gpu_lidar",
+            "pioneer3at_body/base_link/gpu_lidar",
         ],
         parameters=[{"use_sim_time": True}],
         output="screen",
+    )
+
+    robot_localization_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[os.path.join(pkg_share, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
     # janky_map_publisheer = Node(  # TODO: REMOVE THIS
@@ -230,6 +238,7 @@ def generate_launch_description():
             ros_gz_bridge,
             robot,
             laser_frame_fix,
+            robot_localization_node,
             rviz_node,
             # robot_steering,
             # navigation2_cmd,
