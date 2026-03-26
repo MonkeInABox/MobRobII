@@ -521,6 +521,38 @@
     </plugin>
   </gazebo>
 
+  <!-- GPS -->
+  <joint name="gps_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="gps_link"/>
+    <origin xyz="-0.05 0 0.05" rpy="0 0 0"/>
+  </joint>
+  <link name="gps_link"/>
+
+  <gazebo reference="gps_link">
+    <sensor name="navsat" type="navsat">
+      <always_on>true</always_on>
+      <update_rate>1</update_rate>
+      <topic>gps/fix</topic>
+      <gz_frame_id>gps_link</gz_frame_id>
+      <navsat>
+        <position_sensing>
+          <horizontal>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0</stddev>
+            </noise>
+          </horizontal>
+          <vertical>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0</stddev>
+            </noise>
+          </vertical>
+        </position_sensing>
+      </navsat>
+    </sensor>
+  </gazebo>
 
     <!-- lidar -->
   <link name="laser_frame">

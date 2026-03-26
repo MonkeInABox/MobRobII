@@ -36,6 +36,7 @@
             <uri>/home/jeremy/Documents/Resources/pioneer/src/robots/pioneer.urdf</uri>
             <name>pioneer</name>
         </include> -->
+        
         <spherical_coordinates>
             <surface_model>EARTH_WGS84</surface_model>
             <world_frame_orientation>ENU</world_frame_orientation>
