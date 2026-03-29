@@ -22,6 +22,7 @@ setup(
         (os.path.join('share', package_name, 'src', 'worlds'),
             glob('src/worlds/*')),
 
+
         # launch directory
         (os.path.join('share', package_name, 'launch'),
             glob('launch/*')),
@@ -33,6 +34,7 @@ setup(
         # config
         (os.path.join('share', package_name, 'config'),
             glob('config/*')),
+        (os.path.join('share', package_name), ['pioneer/waypoints.csv']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

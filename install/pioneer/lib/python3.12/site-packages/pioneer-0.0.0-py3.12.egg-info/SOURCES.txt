@@ -14,6 +14,7 @@ launch/display.launch.py
 launch/sdf.launch.py
 pioneer/__init__.py
 pioneer/velocity_publisher.py
+pioneer/waypoints.csv
 resource/pioneer
 rviz/config.rviz
 src/meshes/Coordinates
@@ -26,6 +27,7 @@ src/meshes/front_sonar.dae
 src/meshes/hokuyo.dae
 src/meshes/hokuyo1.dae
 src/meshes/hokuyo_convex.stl
+src/meshes/james_oval.stl
 src/meshes/kinect.dae
 src/meshes/kinect.tga
 src/meshes/left_hubcap.dae

@@ -40,8 +40,8 @@
         <spherical_coordinates>
             <surface_model>EARTH_WGS84</surface_model>
             <world_frame_orientation>ENU</world_frame_orientation>
-            <latitude_deg>38.161479</latitude_deg>
-            <longitude_deg>-122.454630</longitude_deg>
+            <latitude_deg>-31.9080057</latitude_deg>
+            <longitude_deg>115.817984</longitude_deg>
             <elevation>0</elevation>
             <heading_deg>0</heading_deg>
         </spherical_coordinates>
@@ -67,7 +67,7 @@
                     <collision name="collision">
                     <geometry>
                         <cylinder>
-                            <radius> 10.0 </radius>
+                            <radius> 160.0 </radius>
                             <length> 0.01 </length>
                         </cylinder>
                     </geometry>
@@ -75,9 +75,9 @@
                     <visual name="visual">
                     <geometry>
                         <cylinder>
-                            <radius> 10.0 </radius>
+                            <radius> 160.0 </radius>
                             <length> 0.01 </length>
-                            <scale> 0.2 0.2 0.2 </scale>
+                            <scale> 1.0 1.0 1.0 </scale>
                         </cylinder>
                     </geometry>
                     <material>
@@ -91,7 +91,7 @@
 
             <model name='wall'>
                 <static>true</static>
-                <pose>5 0 0 0 0 0</pose><!--pose relative to the world-->
+                <pose>80 0 0 0 0 0</pose><!--pose relative to the world-->
                 <link name='box'>
                     <pose/>
                     <inertial> <!--inertial properties of the link mass, inertia matix-->

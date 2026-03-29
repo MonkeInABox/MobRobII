@@ -23,6 +23,7 @@
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/p3at_meshes/back_sonar.stl
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/tampa1_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/hokuyo1.dae
+/home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/james_oval.stl
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/top.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/suporte_depth_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/suporte_base_mesh.dae
@@ -56,6 +57,7 @@
 /home/jeremy/Resources/install/pioneer/share/pioneer/rviz/config.rviz
 /home/jeremy/Resources/install/pioneer/share/pioneer/config/bridge_config.yaml
 /home/jeremy/Resources/install/pioneer/share/pioneer/config/ekf.yaml
+/home/jeremy/Resources/install/pioneer/share/pioneer/waypoints.csv
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/PKG-INFO
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/top_level.txt
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/dependency_links.txt
