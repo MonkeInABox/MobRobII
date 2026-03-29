@@ -1,4 +1,6 @@
+/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer/velocity_publisher.py
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer/__init__.py
+/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer/__pycache__/velocity_publisher.cpython-312.pyc
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer/__pycache__/__init__.cpython-312.pyc
 /home/jeremy/Resources/install/pioneer/share/ament_index/resource_index/packages/pioneer
 /home/jeremy/Resources/install/pioneer/share/pioneer/package.xml
@@ -52,9 +54,13 @@
 /home/jeremy/Resources/install/pioneer/share/pioneer/launch/display.launch.py
 /home/jeremy/Resources/install/pioneer/share/pioneer/launch/sdf.launch.py
 /home/jeremy/Resources/install/pioneer/share/pioneer/rviz/config.rviz
+/home/jeremy/Resources/install/pioneer/share/pioneer/config/bridge_config.yaml
+/home/jeremy/Resources/install/pioneer/share/pioneer/config/ekf.yaml
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/PKG-INFO
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/top_level.txt
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/dependency_links.txt
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/requires.txt
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/SOURCES.txt
+/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/entry_points.txt
 /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info/zip-safe
+/home/jeremy/Resources/install/pioneer/lib/pioneer/velocity_publisher

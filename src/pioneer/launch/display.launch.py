@@ -147,6 +147,14 @@ def generate_launch_description():
         parameters=[os.path.join(pkg_share, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
+    velocity_publisher_node = Node(
+        package='pioneer',
+        executable='velocity_publisher',
+        name='velocity_publisher',
+        output='screen',
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+    )
+
     # janky_map_publisheer = Node(  # TODO: REMOVE THIS
     #     package="tf2_ros",
     #     executable="static_transform_publisher",
@@ -240,6 +248,7 @@ def generate_launch_description():
             laser_frame_fix,
             robot_localization_node,
             rviz_node,
+            velocity_publisher_node,
             # robot_steering,
             # navigation2_cmd,
             #driveDaRobot,

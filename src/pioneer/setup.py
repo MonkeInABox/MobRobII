@@ -47,6 +47,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'velocity_publisher = pioneer.velocity_publisher:main',
         ],
     },
 )
