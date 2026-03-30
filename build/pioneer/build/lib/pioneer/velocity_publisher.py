@@ -88,6 +88,12 @@ class VelocityPublisher(Node):
 
         self.get_logger().info(f'Waypoints: {self.waypoints}')
 
+    def dist_to_goal(self):
+        if self.current_wp_ind >= len(self.waypoints):
+            return 0.0
+        target_x, target_y = self.waypoints[self.current_wp_ind]
+        return math.sqrt((target_x - self.x) ** 2 + (target_y - self.y) ** 2)
+
     def gps_callback(self, msg):
         self.gps_lat = msg.latitude
         self.gps_lon = msg.longitude
@@ -126,20 +132,7 @@ class VelocityPublisher(Node):
         valid = [r for r in sector if not math.isinf(r) and not math.isnan(r) and r > 0]
         return min(valid) if valid else float('inf')
 
-    def get_front(self):
-        return self.get_sector_min(self.ranges, -30, 30)
 
-    def get_left(self):
-        return self.get_sector_min(self.ranges, 30, 90)
-
-    def get_right(self):
-        return self.get_sector_min(self.ranges, -90, -30)
-
-    def dist_to_goal(self):
-        if self.current_wp_ind >= len(self.waypoints):
-            return 0.0
-        target_x, target_y = self.waypoints[self.current_wp_ind]
-        return math.sqrt((target_x - self.x) ** 2 + (target_y - self.y) ** 2)
 
     def timer_callback(self):
         msg = Twist()
@@ -167,7 +160,7 @@ class VelocityPublisher(Node):
 
     def navigate_to_goal(self, dx, dy, distance):
         msg = Twist()
-        front = self.get_front()
+        front = self.get_sector_min(self.ranges, -30, 30)
 
         if front < self.stop_distance:
             self.state = WALL_FOLLOWING
@@ -191,8 +184,8 @@ class VelocityPublisher(Node):
 
     def follow_wall(self):
         msg = Twist()
-        front = self.get_front()
-        right = self.get_right()
+        front = self.get_sector_min(self.ranges, -30, 30)
+        right = self.get_sector_min(self.ranges, -90, -30)
         current_dist = self.dist_to_goal()
 
         dist_from_hit = math.sqrt(
