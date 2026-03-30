@@ -28,16 +28,10 @@ def generate_launch_description():
 
     bridge_config_path = os.path.join(pkg_share, "config", "bridge_config.yaml")
 
-    #nav2_config_path = os.path.join(pkg_share, "config", "nav2_params.yaml")
-
     world_path = os.path.join(pkg_share, "src", "worlds", "basic_urdf.sdf")
-    # world_path = os.path.join(pkg_share, "world", "maze.world")
 
     ros_gz_sim_share = get_package_share_directory("ros_gz_sim")
 
-    # gz_spawn_model_launch_source = os.path.join(
-    #     ros_gz_sim_share, "launch", "gz_spawn_model.launch.py"
-    # )
 
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
@@ -52,13 +46,6 @@ def generate_launch_description():
         ],
     )
 
-    # joint_state_publisher_node = Node(
-    #     package="joint_state_publisher",
-    #     executable="joint_state_publisher",
-    #     name="joint_state_publisher",
-    #     parameters=[{"robot_description": Command(["xacro ", default_model_path])}],
-    #     # condition=UnlessCondition(LaunchConfiguration("gui")),
-    # )
 
     rviz_node = Node(
         package="rviz2",
@@ -83,19 +70,6 @@ def generate_launch_description():
         use_composition="True",
     )
 
-    # spawn_entity = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(gz_spawn_model_launch_source),
-    #     launch_arguments={
-    #         "world": "jamesOval",
-    #         "topic": "/robot_description",
-    #         "entity_name": "pioneer",
-    #         # "z": "0.65",
-    #         "x": "10.0",
-    #         "y": "-20.0",
-    #         "z": "0.0",
-    #     }.items(),
-    # )
-
     robot = ExecuteProcess(
         cmd=[
             "ros2",
@@ -104,12 +78,6 @@ def generate_launch_description():
             "create",
             "-topic",
             "robot_description",
-            # "-x",
-            # "10",
-            # "-y",
-            # "-20",
-            # "-z",
-            # "0.00",
             "-x",
             "0",
             "-y",
@@ -122,7 +90,6 @@ def generate_launch_description():
         name="spawn robot",
         output="both",
     )
-
     laser_frame_fix = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
@@ -157,23 +124,6 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
     )
 
-    # janky_map_publisheer = Node(  # TODO: REMOVE THIS
-    #     package="tf2_ros",
-    #     executable="static_transform_publisher",
-    #     name="janky_map_publisheer",
-    #     arguments=[
-    #         "0",
-    #         "0",
-    #         "0",
-    #         "0",
-    #         "0",
-    #         "0",
-    #         "map",
-    #         "odom",
-    #     ],
-    #     parameters=[{"use_sim_time": True}],
-    #     output="screen",
-    # )
 
     robot_localization_node = Node(
         package="robot_localization",
@@ -186,46 +136,9 @@ def generate_launch_description():
         ],
     )
 
-    # robot_steering = Node(
-    #     package="rqt_robot_steering",
-    #     executable="rqt_robot_steering",
-    # )
-
-    # Nav2
-
-    # bringup_dir = get_package_share_directory("nav2_bringup")
-    # configured_params = RewrittenYaml(
-    #     source_file=nav2_config_path, root_key="", param_rewrites="", convert_types=True
-    # )
-
-    # navigation2_cmd = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         os.path.join(bringup_dir, "launch", "navigation_launch.py")
-    #     ),
-    #     launch_arguments={
-    #         "use_sim_time": "True",
-    #         "params_file": configured_params,
-    #         "autostart": "True",
-    #     }.items(),
-    # )
-    # driveDaRobot = Node(
-    #     package="pioneer_drive",
-    #     executable="drive_pioneer",
-    #     # name="talker",
-    #     # parameters=[{"target_frame": LaunchConfiguration("target_frame")}],
-    # )
-
-    # sub_and_pub = Node(
-    #     package="location_sub_and_pub",
-    #     executable="sub_and_pub",
-    #     # name="talker",
-    #     # parameters=[{"target_frame": LaunchConfiguration("target_frame")}],
-    # )
 
     return LaunchDescription(
         [
-            # joint_state_publisher_node,
-            # janky_map_publisheer,  # TODO: Remove this
             DeclareLaunchArgument(
                 name="use_sim_time",
                 default_value="True",
@@ -241,8 +154,11 @@ def generate_launch_description():
                 default_value=default_rviz_config_path,
                 description="Absolute path to rviz config file",
             ),
+            ExecuteProcess(
+                cmd=['ros2', 'bag', 'record', '-o', 'odom_bag', '/odom'],
+                output='screen'
+            ),
             robot_state_publisher_node,
-            # robot_localization_node,
             ExecuteProcess(cmd=["gz", "sim", "-g"], output="screen"),
             gz_server,
             ros_gz_bridge,
@@ -251,9 +167,5 @@ def generate_launch_description():
             robot_localization_node,
             rviz_node,
             velocity_publisher_node,
-            # robot_steering,
-            # navigation2_cmd,
-            #driveDaRobot,
-            #sub_and_pub,
         ]
     )

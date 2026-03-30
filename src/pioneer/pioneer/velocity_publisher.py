@@ -76,29 +76,24 @@ class VelocityPublisher(Node):
                 try:
                     lat = float(row[0])
                     lon = float(row[1])
-                    x, y = self.gps_to_xy(lat, lon)  # fixed: was storing as lat,lon
+                    R = 6371000.0 #earth radius
+                    dlat = math.radians(lat - self.origin_lat)
+                    dlon = math.radians(lon - self.origin_lon)
+                    #basic conversion, not Haversine formula or something because relatively short distance
+                    x = R * dlon * math.cos(math.radians(self.origin_lat))
+                    y = R * dlat
                     self.waypoints.append((x, y))
                 except ValueError:
                     continue
 
-        self.get_logger().info(f'Loaded {len(self.waypoints)} waypoints: {self.waypoints}')
-
-    def gps_to_xy(self, lat, lon):
-        R = 6371000.0
-        dlat = math.radians(lat - self.origin_lat)
-        dlon = math.radians(lon - self.origin_lon)
-        x = R * dlon * math.cos(math.radians(self.origin_lat))
-        y = R * dlat
-        return x, y
+        self.get_logger().info(f'Waypoints: {self.waypoints}')
 
     def gps_callback(self, msg):
         self.gps_lat = msg.latitude
         self.gps_lon = msg.longitude
         self.gps_received = True
         x, y = self.gps_to_xy(msg.latitude, msg.longitude)
-        self.get_logger().info(
-            f'GPS: lat={msg.latitude:.7f} lon={msg.longitude:.7f} '
-            f'→ local x={x:.2f}m y={y:.2f}m'
+        self.get_logger().info(f'GPS: lat={msg.latitude:.7f} lon={msg.longitude:.7f} \n'f'local x={x:.2f} y={y:.2f}'
         )
 
     def odom_callback(self, msg):
@@ -111,17 +106,16 @@ class VelocityPublisher(Node):
 
     def scan_callback(self, msg):
         self.ranges = list(msg.ranges)
-        valid_ranges = [
-            r for r in msg.ranges
-            if msg.range_min < r < msg.range_max
-        ]
+        valid_ranges = [r for r in msg.ranges if msg.range_min < r < msg.range_max]
         if not valid_ranges:
             return
         min_distance = min(valid_ranges)
-        self.obstacle_detected = min_distance < self.stop_distance  # fixed: now resets to False
+        if min_distance < self.stop_distance:
+            self.obstacle_detected = True
 
     def get_sector_min(self, ranges, angle_min_deg, angle_max_deg):
-        if not ranges:  # fixed: was "anges"
+        if not ranges: 
+            # no minimum cos no ranges
             return float('inf')
         n = len(ranges)
         i_min = int((angle_min_deg + 180) / 360 * n)
@@ -150,15 +144,9 @@ class VelocityPublisher(Node):
     def timer_callback(self):
         msg = Twist()
 
-        if not self.waypoints:
-            self.get_logger().info('No waypoints loaded.', once=True)
-            self.publisher_.publish(msg)
-            return
-
         if self.current_wp_ind >= len(self.waypoints):
-            self.get_logger().info('All waypoints reached!', once=True)
-            self.publisher_.publish(msg)
-            return
+            #finished
+            return True
 
         target_x, target_y = self.waypoints[self.current_wp_ind]
         dx = target_x - self.x
@@ -166,7 +154,7 @@ class VelocityPublisher(Node):
         distance = math.sqrt(dx ** 2 + dy ** 2)
 
         if distance < self.goal_reached_range:
-            self.get_logger().info(f'Waypoint {self.current_wp_ind + 1} reached')
+            self.get_logger().info(f'{self.current_wp_ind + 1} reached')
             self.current_wp_ind += 1
             self.state = NAVIGATING
             self.min_dist_to_goal = float('inf')
@@ -186,8 +174,6 @@ class VelocityPublisher(Node):
             self.hit_point_x = self.x
             self.hit_point_y = self.y
             self.min_dist_to_goal = self.dist_to_goal()
-            self.get_logger().info(f'Obstacle at {front:.2f}m — wall following')
-            self.publisher_.publish(msg)
             return
 
         angle_to_goal = math.atan2(dy, dx)
@@ -201,10 +187,7 @@ class VelocityPublisher(Node):
 
         msg.angular.z = self.ang_speed_prop * angle_error
         self.publisher_.publish(msg)
-        self.get_logger().info(
-            f'NAVIGATING | WP {self.current_wp_ind + 1} | '
-            f'dist: {distance:.2f}m | angle_err: {math.degrees(angle_error):.1f}°'
-        )
+        self.get_logger().info(f'NAVIGATING | WP {self.current_wp_ind + 1} | \n dist: {distance:.2f} | angle_err: {math.degrees(angle_error):.1f}')
 
     def follow_wall(self):
         msg = Twist()
@@ -220,30 +203,27 @@ class VelocityPublisher(Node):
                 current_dist < self.min_dist_to_goal and
                 front > self.stop_distance):
             self.state = NAVIGATING
-            self.get_logger().info('Path clear — resuming navigation')
             return
 
         if current_dist < self.min_dist_to_goal:
             self.min_dist_to_goal = current_dist
 
         if front < self.stop_distance:
+            #turn to get around new obstacle
             msg.linear.x = 0.0
             msg.angular.z = self.linear_speed * 2.0
-        elif right < self.wall_distance * 0.7:
+        elif right < self.wall_distance:
             msg.linear.x = self.linear_speed * 0.5
             msg.angular.z = self.linear_speed
-        elif right > self.wall_distance * 1.3:
+        elif right > self.wall_distance:
             msg.linear.x = self.linear_speed * 0.5
             msg.angular.z = -self.linear_speed
         else:
             msg.linear.x = self.linear_speed
             msg.angular.z = 0.0
 
-        self.publisher_.publish(msg)  # fixed: was missing
-        self.get_logger().info(
-            f'WALL FOLLOWING | front: {front:.2f}m | '
-            f'right: {right:.2f}m | dist_to_goal: {current_dist:.2f}m'
-        )
+        self.publisher_.publish(msg) 
+        self.get_logger().info(f'WALL FOLLOWING | front: {front:.2f}m  \n right: {right:.2f}m | dist_to_goal: {current_dist:.2f}m')
 
 
 def main(args=None):
