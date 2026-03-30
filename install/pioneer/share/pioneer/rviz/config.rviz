@@ -173,6 +173,8 @@ Visualization Manager:
           Value: true
         laser_frame:
           Value: true
+        odom:
+          Value: true
         p3at_back_left_axle:
           Value: true
         p3at_back_left_hub:
@@ -199,32 +201,33 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          base_footprint:
-            {}
-          chassis:
-            cam_frame:
-              cam_optical_link:
+        odom:
+          base_link:
+            base_footprint:
+              {}
+            chassis:
+              cam_frame:
+                cam_optical_link:
+                  {}
+            gps_link:
+              {}
+            laser_frame:
+              pioneer3at_body/base_link/gpu_lidar:
                 {}
-          gps_link:
-            {}
-          laser_frame:
-            pioneer3at_body/base_link/gpu_lidar:
+            p3at_back_left_axle:
+              p3at_back_left_hub:
+                {}
+            p3at_back_right_axle:
+              p3at_back_right_hub:
+                {}
+            p3at_front_left_axle:
+              p3at_front_left_hub:
+                {}
+            p3at_front_right_axle:
+              p3at_front_right_hub:
+                {}
+            top_plate:
               {}
-          p3at_back_left_axle:
-            p3at_back_left_hub:
-              {}
-          p3at_back_right_axle:
-            p3at_back_right_hub:
-              {}
-          p3at_front_left_axle:
-            p3at_front_left_hub:
-              {}
-          p3at_front_right_axle:
-            p3at_front_right_hub:
-              {}
-          top_plate:
-            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -264,7 +267,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -282,7 +285,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 6.821992874145508
+      Distance: 11.169702529907227
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -297,10 +300,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7853981852531433
+      Pitch: 0.5053982734680176
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.7853981852531433
+      Yaw: 4.9735894203186035
     Saved: ~
 Window Geometry:
   Displays:

@@ -116,6 +116,8 @@ def generate_launch_description():
             "0",
             "-z",
             "1.00",
+            "-Y",
+            "0",
         ],
         name="spawn robot",
         output="both",
@@ -173,16 +175,16 @@ def generate_launch_description():
     #     output="screen",
     # )
 
-    # robot_localization_node = Node(
-    #     package="robot_localization",
-    #     executable="ekf_node",
-    #     name="ekf_filter_node",
-    #     output="screen",
-    #     parameters=[
-    #         os.path.join(pkg_share, "config/ekf.yaml"),
-    #         {"use_sim_time": LaunchConfiguration("use_sim_time")},
-    #     ],
-    # )
+    robot_localization_node = Node(
+        package="robot_localization",
+        executable="ekf_node",
+        name="ekf_filter_node",
+        output="screen",
+        parameters=[
+            os.path.join(pkg_share, "config/ekf.yaml"),
+            {"use_sim_time": LaunchConfiguration("use_sim_time")},
+        ],
+    )
 
     # robot_steering = Node(
     #     package="rqt_robot_steering",

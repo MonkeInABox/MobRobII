@@ -192,5 +192,58 @@
                     <enabled>true</enabled>
                 </plugin>
             </model>
+
+            <model name='cone2'>
+                <static>true</static>
+                <pose>1 0 0 0 0 0</pose><!--pose relative to the world-->
+                <link name='box'>
+                    <pose/>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>1.14395</mass>
+                        <inertia>
+                            <ixx>9.532917</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.023832</iyy>
+                            <iyz>0</iyz>
+                            <izz>9.556749</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <cone>
+                                <radius>0.3</radius>
+                                <length>0.8</length>
+                            </cone>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>0.8 0.3 0.0 1</ambient>
+                            <diffuse>0.8 0.3 0.0 1</diffuse>
+                            <specular>0.8 0.3 0.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'> <!--todo: describe why we need the collision-->
+                        <geometry>
+                            <cone>
+                                <radius>0.3</radius>
+                                <length>0.8</length>
+                            </cone>
+                        </geometry>
+                    </collision>
+                    <sensor name='sensor_contact' type='contact'>
+                        <contact>
+                            <collision>collision</collision>
+                        </contact>
+                    </sensor>
+                </link>
+                <plugin filename="libgz-sim-touchplugin-system"
+                        name="gz::sim::systems::TouchPlugin">
+                    <target>vehicle_blue</target>
+                    <namespace>cone</namespace>
+                    <time>0.001</time>
+                    <enabled>true</enabled>
+                </plugin>
+            </model>
     </world>
 </sdf>

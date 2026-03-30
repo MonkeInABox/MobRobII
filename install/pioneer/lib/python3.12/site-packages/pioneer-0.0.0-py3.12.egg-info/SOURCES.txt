@@ -18,6 +18,7 @@ pioneer/waypoints.csv
 resource/pioneer
 rviz/config.rviz
 src/meshes/Coordinates
+src/meshes/James Oval.stl
 src/meshes/arm_control_box_mesh.dae
 src/meshes/axle.dae
 src/meshes/back_sonar.dae
@@ -27,7 +28,7 @@ src/meshes/front_sonar.dae
 src/meshes/hokuyo.dae
 src/meshes/hokuyo1.dae
 src/meshes/hokuyo_convex.stl
-src/meshes/james_oval.stl
+src/meshes/james_oval.dae
 src/meshes/kinect.dae
 src/meshes/kinect.tga
 src/meshes/left_hubcap.dae

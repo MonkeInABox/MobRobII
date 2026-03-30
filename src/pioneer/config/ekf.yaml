@@ -10,7 +10,7 @@ ekf_filter_node:
 # set to true, no 3D information will be used in your state estimate. Use this if you are operating in a planar
 # environment and want to ignore the effect of small variations in the ground plane that might otherwise be detected
 # by, for example, an IMU. Defaults to false if unspecified.
-        two_d_mode: false
+        two_d_mode: true
 
 # Whether to publish the acceleration state. Defaults to false if unspecified.
         publish_acceleration: true
@@ -39,9 +39,19 @@ ekf_filter_node:
         #               false, false, true,
         #               false, false, false]
 
-        imu0: imu
+        odom0: /odom
+        odom0_config: [true,  true,  false,    # x, y, z
+                        false, false, false,    # roll, pitch, yaw
+                        true,  true,  false,    # vx, vy, vz
+                        false, false, true,     # vroll, vpitch, vyaw
+                        false, false, false]    # ax, ay, az
+        odom0_differential: false
+
+
+        imu0: /imu
         imu0_config: [false, false, false,
-                      false, false, false,
-                      false, false, false,
-                      false, false, true,
-                      false, false, false]
+                        false, false, false,
+                        false, false, false,
+                        false, false, true,
+                        false, false, false]
+        imu0_differential: false

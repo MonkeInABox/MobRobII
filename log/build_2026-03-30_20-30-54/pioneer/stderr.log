@@ -1,0 +1,5 @@
+  File "/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer/velocity_publisher.py", line 137
+    if !ranges:
+       ^
+SyntaxError: invalid syntax
+

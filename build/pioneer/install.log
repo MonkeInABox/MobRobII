@@ -23,7 +23,6 @@
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/p3at_meshes/back_sonar.stl
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/tampa1_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/hokuyo1.dae
-/home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/james_oval.stl
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/top.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/suporte_depth_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/suporte_base_mesh.dae
@@ -37,9 +36,11 @@
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/back_sonar.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/tampa2_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/right_hubcap.dae
+/home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/James Oval.stl
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/back_sonar_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/hokuyo_convex.stl
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/hokuyo.dae
+/home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/james_oval.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/chassis.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/arm_control_box_mesh.dae
 /home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/wheel.dae
