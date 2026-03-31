@@ -56,6 +56,7 @@
 /home/jeremy/Resources/install/pioneer/share/pioneer/launch/display.launch.py
 /home/jeremy/Resources/install/pioneer/share/pioneer/launch/sdf.launch.py
 /home/jeremy/Resources/install/pioneer/share/pioneer/rviz/config.rviz
+/home/jeremy/Resources/install/pioneer/share/pioneer/config/slam_toolbox_config.yaml
 /home/jeremy/Resources/install/pioneer/share/pioneer/config/bridge_config.yaml
 /home/jeremy/Resources/install/pioneer/share/pioneer/config/ekf.yaml
 /home/jeremy/Resources/install/pioneer/share/pioneer/waypoints.csv

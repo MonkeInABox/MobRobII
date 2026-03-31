@@ -26,12 +26,17 @@ def generate_launch_description():
     )
     default_rviz_config_path = os.path.join(pkg_share, "rviz", "config.rviz")
 
+    slam_launch_dir = get_package_share_directory('slam_toolbox')
+
+    slam_launch_file = os.path.join(slam_launch_dir, 'launch', 'online_async_launch.py')
+
     bridge_config_path = os.path.join(pkg_share, "config", "bridge_config.yaml")
 
     world_path = os.path.join(pkg_share, "src", "worlds", "basic_urdf.sdf")
 
     ros_gz_sim_share = get_package_share_directory("ros_gz_sim")
 
+    mapper_param_path = os.path.join(pkg_share, "config", "slam_toolbox_config.yaml")
 
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
@@ -83,7 +88,7 @@ def generate_launch_description():
             "-y",
             "0",
             "-z",
-            "1.00",
+            "3.00",
             "-Y",
             "0",
         ],
@@ -167,5 +172,12 @@ def generate_launch_description():
             robot_localization_node,
             rviz_node,
             velocity_publisher_node,
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(slam_launch_file),
+                launch_arguments={
+                    'slam_params_file': mapper_param_path,
+                    'use_sim_time': 'true'
+                }.items(),
+            ),
         ]
     )

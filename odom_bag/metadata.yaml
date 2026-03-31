@@ -2,10 +2,10 @@ rosbag2_bagfile_information:
   version: 9
   storage_identifier: mcap
   duration:
-    nanoseconds: 12990976732
+    nanoseconds: 7664204722
   starting_time:
-    nanoseconds_since_epoch: 1774876534096959930
-  message_count: 180
+    nanoseconds_since_epoch: 1774953811794225966
+  message_count: 68
   topics_with_message_count:
     - topic_metadata:
         name: /odom
@@ -28,7 +28,7 @@ rosbag2_bagfile_information:
               nsec: 854775807
             avoid_ros_namespace_conventions: false
         type_description_hash: RIHS01_3cc97dc7fb7502f8714462c526d369e35b603cfc34d946e3f2eda2766dfec6e0
-      message_count: 180
+      message_count: 68
   compression_format: ""
   compression_mode: ""
   relative_file_paths:
@@ -36,9 +36,9 @@ rosbag2_bagfile_information:
   files:
     - path: odom_bag_0.mcap
       starting_time:
-        nanoseconds_since_epoch: 1774876534096959930
+        nanoseconds_since_epoch: 1774953811794225966
       duration:
-        nanoseconds: 12990976732
-      message_count: 180
+        nanoseconds: 7664204722
+      message_count: 68
   custom_data: ~
   ros_distro: jazzy

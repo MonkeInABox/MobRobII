@@ -10,6 +10,7 @@ setup.py
 ../../build/pioneer/pioneer.egg-info/zip-safe
 config/bridge_config.yaml
 config/ekf.yaml
+config/slam_toolbox_config.yaml
 launch/display.launch.py
 launch/sdf.launch.py
 pioneer/__init__.py

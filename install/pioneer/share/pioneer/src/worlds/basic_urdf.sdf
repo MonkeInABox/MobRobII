@@ -63,28 +63,21 @@
 
             <model name="ground_plane">
                 <static>true</static>
+                <pose>0 0 0 -1.5708 0 -1.5708</pose>
                 <link name="link">
                     <collision name="collision">
-                    <geometry>
-                        <cylinder>
-                            <radius> 160.0 </radius>
-                            <length> 0.01 </length>
-                        </cylinder>
-                    </geometry>
+                        <geometry>
+                            <mesh>
+                                <uri>/home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/james_oval.dae</uri>
+                            </mesh>
+                        </geometry>
                     </collision>
                     <visual name="visual">
-                    <geometry>
-                        <cylinder>
-                            <radius> 160.0 </radius>
-                            <length> 0.01 </length>
-                            <scale> 1.0 1.0 1.0 </scale>
-                        </cylinder>
-                    </geometry>
-                    <material>
-                        <ambient>0.25 1.0 0.15 0.6</ambient>
-                        <diffuse>0.25 1.0 0.15 1</diffuse>
-                        <specular>0.25 1.0 0.15 0.8</specular>
-                    </material>
+                        <geometry>
+                            <mesh>
+                                <uri>/home/jeremy/Resources/install/pioneer/share/pioneer/src/meshes/james_oval.dae</uri>
+                            </mesh>
+                        </geometry>
                     </visual>
                 </link>
             </model>
@@ -142,7 +135,7 @@
 
             <model name='cone'>
                 <static>true</static>
-                <pose>2 0 0 0 0 0</pose><!--pose relative to the world-->
+                <pose>2 0 2.3 0 0 0</pose><!--pose relative to the world-->
                 <link name='box'>
                     <pose/>
                     <inertial> <!--inertial properties of the link mass, inertia matix-->
@@ -195,7 +188,7 @@
 
             <model name='cone2'>
                 <static>true</static>
-                <pose>1 0 0 0 0 0</pose><!--pose relative to the world-->
+                <pose>1 0 2.3 0 0 0</pose><!--pose relative to the world-->
                 <link name='box'>
                     <pose/>
                     <inertial> <!--inertial properties of the link mass, inertia matix-->
