@@ -84,11 +84,14 @@ class VelocityPublisher(Node):
                 try:
                     lat = float(row[0])
                     lon = float(row[1])
-                    R = 6371000.0
-                    dlat = math.radians(lat - self.origin_lat)
-                    dlon = math.radians(lon - self.origin_lon)
-                    x = R * dlon * math.cos(math.radians(self.origin_lat))
-                    y = R * dlat
+                    y = (lat - self.origin_lat) * 110000
+                    x = (lon - self.origin_lon) * 85000
+                    #https://www.movable-type.co.uk/scripts/latlong.html
+                    # R = 6371000.0
+                    # dlat = math.radians(lat - self.origin_lat)
+                    # dlon = math.radians(lon - self.origin_lon)
+                    # x = R * dlon * math.cos(math.radians(self.origin_lat))
+                    # y = R * dlat *math.sin(math.radians(self.origin_lon))
                     target_yaw = None
                     if len(row) >= 3 and row[2].strip() != '':
                         target_yaw = math.radians(float(row[2].strip()))
@@ -244,6 +247,7 @@ class VelocityPublisher(Node):
             (self.x - self.hit_point_x) ** 2 +
             (self.y - self.hit_point_y) ** 2
         )
+        #TODO angle to hit point and read that scan in for distbug
         if (dist_from_hit > 1.0 and
                 current_dist < self.min_dist_to_goal and
                 front > self.stop_distance):
