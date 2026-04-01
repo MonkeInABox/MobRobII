@@ -130,6 +130,20 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
     )
 
+    map_auto_save = TimerAction(
+        period=35.0,
+        actions=[
+            ExecuteProcess(
+                cmd=[
+                    'ros2', 'run', 'nav2_map_server', 'map_saver_cli',
+                    '-f', 'slam_map',
+                    '--ros-args', '-p', 'use_sim_time:=true'
+                ],
+                output='screen',
+                name='map_auto_saver',
+            )
+        ],
+    )
 
     robot_localization_node = Node(
         package="robot_localization",
@@ -184,6 +198,7 @@ def generate_launch_description():
                         }.items(),
                     ),
                 ]
-            )
+            ),
+            map_auto_save
         ]
     )
