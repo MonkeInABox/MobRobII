@@ -290,12 +290,12 @@ class VelocityPublisher(Node):
 
         if front < self.stop_distance:
             msg.linear.x = 0.0
-            msg.angular.z = self.linear_speed * 4.0
+            msg.angular.z = self.linear_speed * 3.0
         elif right < self.wall_distance:
             msg.linear.x = self.linear_speed * 0.3
             msg.angular.z = self.linear_speed
         elif right > self.wall_distance:
-            msg.linear.x = self.linear_speed * 1.2
+            msg.linear.x = self.linear_speed * 1.0
             msg.angular.z = -self.linear_speed
         else:
             msg.linear.x = self.linear_speed
