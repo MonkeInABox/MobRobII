@@ -512,9 +512,10 @@
       <left_joint>p3at_back_left_wheel_joint</left_joint>
       <right_joint>p3at_back_right_wheel_joint</right_joint>
       <right_joint>p3at_front_right_wheel_joint</right_joint>
-      <wheel_separation>0.268</wheel_separation>
+      <wheel_separation>0.536</wheel_separation>
       <wheel_radius>0.111</wheel_radius>
-      <odom_publish_frequency>20</odom_publish_frequency>
+      <!--https://www.sick.com/media/pdf/8/48/148/dataSheet_TIM781-2174101_1096807_en.pdf-->
+      <odom_publish_frequency>15</odom_publish_frequency> 
       <topic>/cmd_vel</topic>
       <frame_id>odom</frame_id>
       <odom_topic>odom</odom_topic>
@@ -540,13 +541,13 @@
           <horizontal>
             <noise type="gaussian">
               <mean>0.0</mean>
-              <stddev>0.0</stddev>
+              <stddev>0.05</stddev>
             </noise>
           </horizontal>
           <vertical>
             <noise type="gaussian">
               <mean>0.0</mean>
-              <stddev>0.0</stddev>
+              <stddev>0.05</stddev>
             </noise>
           </vertical>
         </position_sensing>
@@ -596,16 +597,17 @@
       <lidar>
         <scan>
           <horizontal>
-            <samples>3280</samples>
+            <!--https://www.sick.com/media/pdf/8/48/148/dataSheet_TIM781-2174101_1096807_en.pdf-->
+            <samples>810</samples>
             <!-- <min_angle>-1.5708</min_angle> -->
             <!-- <max_angle>1.5708</max_angle> -->
-            <min_angle>-3.14</min_angle>
-            <max_angle>3.14</max_angle>
+            <min_angle>-2.35619</min_angle>
+            <max_angle>2.35619</max_angle>
           </horizontal>
         </scan>
         <range>
-          <min>0.15</min>
-          <max>20.0</max>
+          <min>0.05</min>
+          <max>25.0</max>
         </range>
       </lidar>
       <always_on>1</always_on>
@@ -682,19 +684,19 @@
             <x>
             <noise type="gaussian">
                 <mean>0</mean>
-                <stddev>0.0002</stddev>
+                <stddev>0.05</stddev>
             </noise>
             </x>
             <y>
             <noise type="gaussian">
                 <mean>0</mean>
-                <stddev>0.0002</stddev>
+                <stddev>0.05</stddev>
             </noise>
             </y>
             <z>
             <noise type="gaussian">
                 <mean>0</mean>
-                <stddev>0.0002</stddev>
+                <stddev>0.05</stddev>
             </noise>
             </z>
         </angular_velocity>

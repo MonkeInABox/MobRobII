@@ -34,7 +34,7 @@ colcon build
 
 then:
 
-ros2 launch pioneer3 display.launch.py
+ros2 launch pioneer display.launch.py
 ```
 
 # nav_msgs/Odometry Message

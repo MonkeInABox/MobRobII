@@ -1,0 +1,24 @@
+[1.168s] Invoking command in '/home/jeremy/Resources/src/pioneer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pioneer build --build-base /home/jeremy/Resources/build/pioneer/build install --record /home/jeremy/Resources/build/pioneer/install.log --single-version-externally-managed install_data
+[1.466s] running egg_info
+[1.486s] writing ../../build/pioneer/pioneer.egg-info/PKG-INFO
+[1.487s] writing dependency_links to ../../build/pioneer/pioneer.egg-info/dependency_links.txt
+[1.487s] writing entry points to ../../build/pioneer/pioneer.egg-info/entry_points.txt
+[1.487s] writing requirements to ../../build/pioneer/pioneer.egg-info/requires.txt
+[1.487s] writing top-level names to ../../build/pioneer/pioneer.egg-info/top_level.txt
+[1.534s] reading manifest file '../../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[1.535s] writing manifest file '../../build/pioneer/pioneer.egg-info/SOURCES.txt'
+[1.536s] running build
+[1.536s] running build_py
+[1.536s] copying pioneer/velocity_publisher.py -> /home/jeremy/Resources/build/pioneer/build/lib/pioneer
+[1.536s] running install
+[1.544s] running install_lib
+[1.564s] copying /home/jeremy/Resources/build/pioneer/build/lib/pioneer/velocity_publisher.py -> /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer
+[1.565s] byte-compiling /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer/velocity_publisher.py to velocity_publisher.cpython-312.pyc
+[1.568s] running install_data
+[1.570s] running install_egg_info
+[1.591s] removing '/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info' (and everything under it)
+[1.591s] Copying ../../build/pioneer/pioneer.egg-info to /home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages/pioneer-0.0.0-py3.12.egg-info
+[1.592s] running install_scripts
+[1.747s] Installing velocity_publisher script to /home/jeremy/Resources/install/pioneer/lib/pioneer
+[1.747s] writing list of installed files to '/home/jeremy/Resources/build/pioneer/install.log'
+[1.793s] Invoked command in '/home/jeremy/Resources/src/pioneer' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jeremy/Resources/build/pioneer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeremy/Resources/install/pioneer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pioneer build --build-base /home/jeremy/Resources/build/pioneer/build install --record /home/jeremy/Resources/build/pioneer/install.log --single-version-externally-managed install_data

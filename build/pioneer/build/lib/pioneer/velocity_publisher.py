@@ -37,10 +37,11 @@ class VelocityPublisher(Node):
         self.y = 0.0
         self.yaw = 0.0
 
+        # https://www.phidgets.com/?prodid=1205#Tab_Specifications
         # imu bias
-        self.bias = 0.005
+        self.bias = 0.0087 #rad/s
         #noise 
-        self.noise_std = 0.005
+        self.noise_std = 0.05
 
         self.gps_lat = None
         self.gps_lon = None
@@ -115,6 +116,11 @@ class VelocityPublisher(Node):
         target_x, target_y, _ = self.waypoints[self.current_wp_ind]
         return math.sqrt((target_x - self.x) ** 2 + (target_y - self.y) ** 2)
 
+    def gps_to_xy(self, lat, lon):
+        y = (lat - self.origin_lat) * 110000
+        x = (lon - self.origin_lon) * 85000
+        return x, y
+
     def gps_callback(self, msg):
         self.gps_lat = msg.latitude
         self.gps_lon = msg.longitude
@@ -142,6 +148,10 @@ class VelocityPublisher(Node):
         for range in self.ranges:
             if range > 100:
                 range = 100
+        #     elif range < 0.5:
+        #         range = 0.5
+        # # print(len(self.ranges))
+        # print(self.ranges)
         min_distance = min(valid_ranges)
         if min_distance < self.stop_distance:
             self.obstacle_detected = True
@@ -227,13 +237,16 @@ class VelocityPublisher(Node):
         angle_to_goal = math.atan2(dy, dx)
         angle_error = angle_to_goal - self.yaw
         angle_error = math.atan2(math.sin(angle_error), math.cos(angle_error))
-
+        
         if abs(angle_error) > 0.3:
             msg.linear.x = 0.0
+            msg.angular.z = self.ang_speed_prop * angle_error
         else:
             msg.linear.x = self.linear_speed
+            msg.angular.z = 0.0
 
         msg.angular.z = self.ang_speed_prop * angle_error
+
         self.publisher_.publish(msg)
         self.get_logger().info(f'NAV | WP {self.current_wp_ind + 1} | \n'f'dist: {distance:.2f} | angle_err: {math.degrees(angle_error):.1f}')
 
@@ -247,9 +260,27 @@ class VelocityPublisher(Node):
             (self.x - self.hit_point_x) ** 2 +
             (self.y - self.hit_point_y) ** 2
         )
-        #TODO angle to hit point and read that scan in for distbug
+
+        target_x, target_y, _ = self.waypoints[self.current_wp_ind]
+        dx = target_x - self.x
+        dy = target_y - self.y
+        angle_look = math.atan2(dy, dx)
+
+        # convert goal direction to a scan index
+        angle_to_goal_relative = angle_look - self.yaw
+        angle_to_goal_relative = math.atan2(
+            math.sin(angle_to_goal_relative), math.cos(angle_to_goal_relative)
+        )
+        i = int((math.degrees(angle_to_goal_relative) + 180) / 360 * len(self.ranges))
+        i = max(0, min(i, len(self.ranges) - 1))
+        free_space = self.ranges[i]
+        if math.isinf(free_space) or math.isnan(free_space) or free_space <= 0:
+            free_space = 1000.0
+
+        # Dist-bug leave condition: closer to goal than hit point AND path is clear
         if (dist_from_hit > 1.0 and
                 current_dist < self.min_dist_to_goal and
+                free_space > current_dist and
                 front > self.stop_distance):
             self.state = NAVIGATING
             return
@@ -259,20 +290,22 @@ class VelocityPublisher(Node):
 
         if front < self.stop_distance:
             msg.linear.x = 0.0
-            msg.angular.z = self.linear_speed * 2.0
+            msg.angular.z = self.linear_speed * 4.0
         elif right < self.wall_distance:
-            msg.linear.x = self.linear_speed * 0.2
+            msg.linear.x = self.linear_speed * 0.3
             msg.angular.z = self.linear_speed
         elif right > self.wall_distance:
-            msg.linear.x = self.linear_speed * 0.2
+            msg.linear.x = self.linear_speed * 1.2
             msg.angular.z = -self.linear_speed
         else:
             msg.linear.x = self.linear_speed
             msg.angular.z = 0.0
 
         self.publisher_.publish(msg)
-        self.get_logger().info(f'WALL FOLLOWING | front: {front:.2f}m  \n'f'right: {right:.2f} | dist_to_goal: {current_dist:.2f}m')
-
+        self.get_logger().info(
+            f'WALL FOLLOWING | front: {front:.2f}m | right: {right:.2f} | '
+            f'dist_to_goal: {current_dist:.2f}m | free_space: {free_space:.2f}m'
+        )
 
 def main(args=None):
     rclpy.init(args=args)

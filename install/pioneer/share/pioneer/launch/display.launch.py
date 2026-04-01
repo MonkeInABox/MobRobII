@@ -7,6 +7,7 @@ from launch.actions import (
     DeclareLaunchArgument,
     ExecuteProcess,
     IncludeLaunchDescription,
+    TimerAction
 )
 from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -163,7 +164,6 @@ def generate_launch_description():
                 cmd=['ros2', 'bag', 'record', '-o', 'odom_bag', '/odom'],
                 output='screen'
             ),
-            robot_state_publisher_node,
             ExecuteProcess(cmd=["gz", "sim", "-g"], output="screen"),
             gz_server,
             ros_gz_bridge,
@@ -172,12 +172,18 @@ def generate_launch_description():
             robot_localization_node,
             rviz_node,
             velocity_publisher_node,
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(slam_launch_file),
-                launch_arguments={
-                    'slam_params_file': mapper_param_path,
-                    'use_sim_time': 'true'
-                }.items(),
-            ),
+            TimerAction(
+                period=3.0,
+                actions=[
+                    robot_state_publisher_node,
+                    IncludeLaunchDescription(
+                        PythonLaunchDescriptionSource(slam_launch_file),
+                        launch_arguments={
+                            'slam_params_file': mapper_param_path,
+                            'use_sim_time': 'true'
+                        }.items(),
+                    ),
+                ]
+            )
         ]
     )
