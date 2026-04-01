@@ -39,8 +39,8 @@ class VelocityPublisher(Node):
 
         # https://www.phidgets.com/?prodid=1205#Tab_Specifications
         # imu bias
-        self.bias = 0.0087 #rad/s
-        #noise 
+        self.bias = 0.0087  # rad/s
+        # noise
         self.noise_std = 0.05
 
         self.gps_lat = None
@@ -54,7 +54,7 @@ class VelocityPublisher(Node):
         self.goal_reached_range = 0.3
         self.ang_speed_prop = 1.5
         self.linear_speed = 0.5
-        self.yaw_tolerance = 0.05 
+        self.yaw_tolerance = 0.05
         self.i = 0
 
         self.ranges = []
@@ -74,7 +74,7 @@ class VelocityPublisher(Node):
 
     def load_waypoints(self, path):
         if not os.path.exists(path):
-            self.get_logger().error(f'Waypoints not found: {path}')
+            self.get_logger().error(f'No file')
             return
 
         with open(path, newline='') as f:
@@ -87,24 +87,23 @@ class VelocityPublisher(Node):
                     lon = float(row[1])
                     y = (lat - self.origin_lat) * 110000
                     x = (lon - self.origin_lon) * 85000
-                    #https://www.movable-type.co.uk/scripts/latlong.html
+                    # https://www.movable-type.co.uk/scripts/latlong.html
                     # R = 6371000.0
                     # dlat = math.radians(lat - self.origin_lat)
                     # dlon = math.radians(lon - self.origin_lon)
                     # x = R * dlon * math.cos(math.radians(self.origin_lat))
                     # y = R * dlat *math.sin(math.radians(self.origin_lon))
                     target_yaw = None
+                    # check for a yaw
                     if len(row) >= 3 and row[2].strip() != '':
                         target_yaw = math.radians(float(row[2].strip()))
-
                     self.waypoints.append((x, y, target_yaw))
                 except ValueError:
                     continue
+        self.get_logger().info(f'WP - {self.waypoints}')
 
-        self.get_logger().info(f'Waypoints: {self.waypoints}')
-    
     def apply_imu_slip(self, true_yaw):
-        #add some slip to thje imu for the simulation 
+        # add some slip to thje imu for the simulation
         # TODO remove if used on real robot
         noise = random.gauss(0.0, self.noise_std)
         slipped = true_yaw + noise + self.bias
@@ -116,22 +115,19 @@ class VelocityPublisher(Node):
         target_x, target_y, _ = self.waypoints[self.current_wp_ind]
         return math.sqrt((target_x - self.x) ** 2 + (target_y - self.y) ** 2)
 
-    def gps_to_xy(self, lat, lon):
-        y = (lat - self.origin_lat) * 110000
-        x = (lon - self.origin_lon) * 85000
-        return x, y
-
     def gps_callback(self, msg):
         self.gps_lat = msg.latitude
         self.gps_lon = msg.longitude
         self.gps_received = True
-        x, y = self.gps_to_xy(msg.latitude, msg.longitude)
+        y = (msg.latitude - self.origin_lat) * 110000
+        x = (msg.latitude - self.origin_lon) * 85000
         self.get_logger().info(
             f'GPS: lat={msg.latitude:.7f} lon={msg.longitude:.7f} \n'
             f'local x={x:.2f} y={y:.2f}'
         )
 
     def odom_callback(self, msg):
+        #convert from quaternion
         self.x = msg.pose.pose.position.x
         self.y = msg.pose.pose.position.y
         q = msg.pose.pose.orientation
@@ -142,7 +138,8 @@ class VelocityPublisher(Node):
 
     def scan_callback(self, msg):
         self.ranges = list(msg.ranges)
-        valid_ranges = [r for r in msg.ranges if msg.range_min < r < msg.range_max]
+        valid_ranges = [
+            r for r in msg.ranges if msg.range_min < r < msg.range_max]
         if not valid_ranges:
             return
         for range in self.ranges:
@@ -169,7 +166,6 @@ class VelocityPublisher(Node):
         return min(valid) if valid else 1000.0
 
     def rotate_to_yaw(self, target_yaw):
-        """Rotate in place toward target_yaw. Returns True when complete."""
         msg = Twist()
         yaw_error = target_yaw - self.yaw
         # nomarlise
@@ -183,7 +179,8 @@ class VelocityPublisher(Node):
         msg.linear.x = 0.0
         msg.angular.z = self.ang_speed_prop * yaw_error
         self.publisher_.publish(msg)
-        self.get_logger().info(f'ROTATING | target: {math.degrees(target_yaw):.1f} | 'f'current: {math.degrees(self.yaw):.1f} | ')
+        self.get_logger().info(
+            f'ROTATING | from: {math.degrees(target_yaw):.1f} to {math.degrees(self.yaw):.1f}')
         return False
 
     def timer_callback(self):
@@ -200,16 +197,13 @@ class VelocityPublisher(Node):
         if self.state == ROTATING:
             done = self.rotate_to_yaw(target_yaw)
             if done:
-                self.get_logger().info(
-                    f'Waypoint {self.current_wp_ind + 1} final yaw reached'
-                )
                 self.current_wp_ind += 1
                 self.state = NAVIGATING
                 self.min_dist_to_goal = float('inf')
             return
 
         if distance < self.goal_reached_range:
-            self.get_logger().info(f'{self.current_wp_ind + 1} reached')
+            self.get_logger().info(f'{self.current_wp_ind + 1} done')
             if target_yaw is not None:
                 self.state = ROTATING
             else:
@@ -237,7 +231,7 @@ class VelocityPublisher(Node):
         angle_to_goal = math.atan2(dy, dx)
         angle_error = angle_to_goal - self.yaw
         angle_error = math.atan2(math.sin(angle_error), math.cos(angle_error))
-        
+
         if abs(angle_error) > 0.3:
             msg.linear.x = 0.0
             msg.angular.z = self.ang_speed_prop * angle_error
@@ -248,7 +242,8 @@ class VelocityPublisher(Node):
         msg.angular.z = self.ang_speed_prop * angle_error
 
         self.publisher_.publish(msg)
-        self.get_logger().info(f'NAV | WP {self.current_wp_ind + 1} | \n'f'dist: {distance:.2f} | angle_err: {math.degrees(angle_error):.1f}')
+        self.get_logger().info(
+            f'NAV | WP {self.current_wp_ind + 1} | \n dist: {distance:.2f} angle_err: {math.degrees(angle_error):.1f}')
 
     def follow_wall(self):
         msg = Twist()
@@ -271,13 +266,14 @@ class VelocityPublisher(Node):
         angle_to_goal_relative = math.atan2(
             math.sin(angle_to_goal_relative), math.cos(angle_to_goal_relative)
         )
-        i = int((math.degrees(angle_to_goal_relative) + 180) / 360 * len(self.ranges))
+        i = int((math.degrees(angle_to_goal_relative) + 180) /
+                360 * len(self.ranges))
         i = max(0, min(i, len(self.ranges) - 1))
         free_space = self.ranges[i]
         if math.isinf(free_space) or math.isnan(free_space) or free_space <= 0:
             free_space = 1000.0
 
-        # Dist-bug leave condition: closer to goal than hit point AND path is clear
+        # magic: the disting
         if (dist_from_hit > 1.0 and
                 current_dist < self.min_dist_to_goal and
                 free_space > current_dist and
@@ -306,6 +302,7 @@ class VelocityPublisher(Node):
             f'WALL FOLLOWING | front: {front:.2f}m | right: {right:.2f} | '
             f'dist_to_goal: {current_dist:.2f}m | free_space: {free_space:.2f}m'
         )
+
 
 def main(args=None):
     rclpy.init(args=args)

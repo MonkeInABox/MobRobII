@@ -35,7 +35,7 @@ def generate_launch_description():
 
     world_path = os.path.join(pkg_share, "src", "worlds", "basic_urdf.sdf")
 
-    ros_gz_sim_share = get_package_share_directory("ros_gz_sim")
+    #ros_gz_sim_share = get_package_share_directory("ros_gz_sim")
 
     mapper_param_path = os.path.join(pkg_share, "config", "slam_toolbox_config.yaml")
 
@@ -131,6 +131,7 @@ def generate_launch_description():
     )
 
     map_auto_save = TimerAction(
+        #change to whatever is needed, its in SECONDS
         period=35.0,
         actions=[
             ExecuteProcess(
